@@ -1,0 +1,171 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5 url('https://www.transparenttextures.com/patterns/asfalt-light.png') repeat;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem; /* acrescenta padding para telas maiores */
+}
+
+.imagem {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px; /* bordas um pouco mais arredondadas */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* sombra mais suave e leve */
+  overflow: hidden;
+  border: 1.5px solid #004080;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.imagem:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  border-color: #0059c1;
+}
+
+.imagem .imagem-fundo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: brightness(0.97); /* leve ajuste para brilho mais natural */
+  transition: filter 0.3s ease;
+}
+
+.imagem:hover .imagem-fundo {
+  filter: brightness(1);
+}
+
+.caixa-mensagem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 64, 128, 0.88); /* mais opaco para melhor leitura */
+  padding: 40px 56px; /* mais espaçamento para “respirar” */
+  max-width: 680px;
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.caixa-mensagem .titulo {
+  font-size: 3rem; /* aumento suave para destaque */
+  font-weight: 900;
+  margin-bottom: 24px; /* mais espaço abaixo */
+  border-bottom: 3px solid #a3c1ff;
+  padding-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+.caixa-mensagem .texto {
+  font-size: 1.4rem;
+  color: #dce7ff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+/* Botão discreto para ação */
+.caixa-mensagem .botao {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 44px;
+  background: linear-gradient(135deg, #004aad, #0070d2);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 112, 210, 0.6);
+}
+
+.caixa-mensagem .botao:hover,
+.caixa-mensagem .botao:focus {
+  background: linear-gradient(135deg, #0057d0, #0083ff);
+  box-shadow: 0 6px 20px rgba(0, 131, 255, 0.8);
+  outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    padding: 2rem 1.5rem;
+  }
+  .caixa-mensagem {
+    padding: 32px 40px;
+  }
+  .caixa-mensagem .titulo {
+    font-size: 2.4rem;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+  }
+  .caixa-mensagem .texto {
+    font-size: 1.15rem;
+  }
+  .caixa-mensagem .botao {
+    padding: 12px 36px;
+    font-size: 1.05rem;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+  .imagem {
+    max-width: 100%;
+  }
+  .caixa-mensagem {
+    position: static;
+    transform: none;
+    background: #003366;
+    box-shadow: none;
+    border-radius: 14px;
+    padding: 24px 20px;
+  }
+  .caixa-mensagem .titulo {
+    border-bottom: none;
+    margin-bottom: 14px;
+    font-size: 1.8rem;
+  }
+  .caixa-mensagem .texto {
+    font-size: 1rem;
+  }
+  .caixa-mensagem .botao {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1rem;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,312 @@
+/* Header e navegação melhorado */
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+.header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .navbar .left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+/* Botão menu melhorado */
+.header .navbar .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.header .navbar .menu-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+}
+
+.header .navbar .menu-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do menu hamburger */
+.header .navbar .menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header .navbar .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header .navbar .menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Menu lateral melhorado */
+.offcanvas {
+    width: 300px;
+    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 0 16px 16px 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.offcanvas .close-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+.offcanvas .close-logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.offcanvas .close-logo img:hover {
+    transform: scale(1.05);
+}
+
+.offcanvas .close-logo .btn-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6c757d;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offcanvas .close-logo .btn-close:hover {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+    transform: rotate(90deg);
+}
+
+.offcanvas .offcanvas-header {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas .offcanvas-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+}
+
+.offcanvas .offcanvas-body {
+    padding: 24px;
+    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+}
+
+.offcanvas .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.offcanvas .navbar-nav .nav-item {
+    margin-bottom: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.offcanvas .navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: #495057;
+    text-decoration: none;
+    padding: 16px 20px;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 123, 255, 0.1);
+    margin-bottom: 8px;
+}
+
+.offcanvas .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    transition: width 0.3s ease;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.offcanvas .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.offcanvas .navbar-nav .nav-link:hover::before {
+    width: 100%;
+}
+
+.offcanvas .navbar-nav .nav-link.active {
+    color: #ffffff;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transform: translateX(4px);
+}
+
+/* Overlay melhorado */
+.offcanvas-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    transition: all 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        padding: 8px 16px;
+    }
+    
+    .header .navbar {
+        padding: 8px 16px;
+    }
+    
+    .offcanvas {
+        width: 280px;
+    }
+    
+    .offcanvas .close-logo {
+        padding: 20px;
+    }
+    
+    .offcanvas .offcanvas-header {
+        padding: 16px;
+    }
+    
+    .offcanvas .offcanvas-body {
+        padding: 20px;
+    }
+    
+    .offcanvas .navbar-nav .nav-link {
+        font-size: 15px;
+        padding: 14px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offcanvas {
+        width: 260px;
+    }
+    
+    .offcanvas .close-logo {
+        padding: 16px;
+    }
+    
+    .offcanvas .offcanvas-body {
+        padding: 16px;
+    }
+    
+    .offcanvas .offcanvas-title {
+        font-size: 20px;
+    }
+}
+
+/* Animações suaves */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+/* Melhorias sutis adicionais */
+.header .navbar .menu-icon:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+.offcanvas .navbar-nav .nav-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+/* Efeito de carregamento dos itens do menu */
+.offcanvas.show .navbar-nav .nav-item {
+    animation: slideInItems 0.4s ease forwards;
+    animation-delay: calc(var(--item-index, 0) * 0.1s);
+    opacity: 0;
+}
+
+@keyframes slideInItems {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.offcanvas.show .navbar-nav .nav-item:nth-child(1) { --item-index: 0; }
+.offcanvas.show .navbar-nav .nav-item:nth-child(2) { --item-index: 1; }
+.offcanvas.show .navbar-nav .nav-item:nth-child(3) { --item-index: 2; }
+.offcanvas.show .navbar-nav .nav-item:nth-child(4) { --item-index: 3; }
+.offcanvas.show .navbar-nav .nav-item:nth-child(5) { --item-index: 4; }

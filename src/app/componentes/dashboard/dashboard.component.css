@@ -1,0 +1,384 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #e2e2e2, #c1c1c1);
+  color: #0a2a8c;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Menu no topo - full width */
+app-menu {
+  position: relative;
+  z-index: 1300; /* maior que 1200 do footer */
+}
+
+
+/* Botão menu hamburguer alinhado à esquerda */
+.menu-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 4px 12px 4px 12px;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.menu-button:focus {
+  outline: none; /* Remove o contorno padrão azul */
+  background-color: transparent; /* Remove qualquer fundo azul */
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.5); /* sombra azul leve para foco acessível */
+  border-radius: 6px;
+}
+.menu-button:hover {
+  color: #a0baff;
+}
+
+/* Título do menu */
+.menu-title {
+  flex-grow: 1;
+  user-select: none;
+  letter-spacing: 1.1px;
+}
+
+/* Container centralizado do dashboard */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 32px auto 0;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(141, 141, 143, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: calc(100vh - 80px); /* altura menu maior */
+  padding: 24px 32px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  overflow-y: auto;
+}
+
+/* Título */
+.dashboard-title {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  color: #0a2a8c;
+  text-shadow: 0 1px 3px rgba(10,42,140,0.3);
+}
+
+/* Seção de seleção de veículo */
+.vehicle-selection {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.vehicle-label {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12px;
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.vehicle-select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 17px;
+  border-radius: 10px;
+  border: 2px solid #999;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+.vehicle-select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px #0d6efd88;
+}
+
+/* Métricas */
+.vehicle-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 720px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.metric-box {
+  background: #f9fbff;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease;
+  cursor: default;
+  user-select: none;
+}
+.metric-box:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(13,110,253,0.3);
+}
+
+.metric-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0a2a8c;
+  margin-bottom: 6px;
+  font-family: 'Segoe UI Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Imagem do veículo */
+.vehicle-image-container {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 0;
+  user-select: none;
+}
+
+.vehicle-image {
+  max-width: 100%;
+  max-height: 320px;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 6px 18px rgba(176, 190, 231, 0.3);
+  transition: transform 0.3s ease;
+}
+.vehicle-image:hover {
+  transform: scale(1.05);
+}
+
+/* Footer fixo da tabela */
+.telemetry-table-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 0;
+  box-sizing: border-box;
+  z-index: 1200;
+  max-width: 1200px;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(8px);
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.1);
+}
+
+/* Wrapper para scroll horizontal */
+.telemetry-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Tabela */
+.telemetry-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 720px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+.telemetry-table-header {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.telemetry-table th,
+.telemetry-table td {
+  padding: 14px 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+.telemetry-table tbody tr:hover {
+  background-color: #f0f5ff;
+}
+
+/* Grupo de busca VIN */
+.vin-search-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.vin-input {
+  padding: 14px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1.5px solid #888;
+  transition: border-color 0.3s ease;
+  font-weight: 600;
+}
+.vin-input:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 8px #0d6efd88;
+}
+
+.vin-search-button {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+.vin-search-button:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 4px 14px #0b5ed7bb;
+}
+
+/* Responsividade */
+
+/* A partir de 600px - tablet/laptop */
+@media (min-width: 600px) {
+  .vehicle-metrics {
+    flex-direction: row;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .metric-box {
+    width: 220px;
+  }
+
+  .vin-search-group {
+    flex-direction: row;
+    max-width: 520px;
+  }
+
+  .vin-input {
+    border-radius: 10px 0 0 10px;
+    flex: 1;
+  }
+
+  .vin-search-button {
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+/* Ajuste para notebooks - 1024px a 1366px */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .dashboard-container {
+    max-width: 100%;
+    margin: 24px 20px 0;
+  }
+
+  .dashboard-content {
+    flex-direction: row;
+    gap: 48px;
+    padding: 40px 48px 140px;
+    max-height: calc(100vh - 200px);
+  }
+
+  .vehicle-selection {
+    flex: 1 1 220px;
+    max-width: 280px;
+  }
+
+  .vehicle-metrics {
+    flex: 2 1 500px;
+    gap: 28px;
+  }
+
+  .metric-box {
+    min-width: 180px;
+  }
+
+  .vehicle-image-container {
+    flex: 1 1 340px;
+    max-width: 380px;
+    max-height: 320px;
+    margin-top: 0;
+  }
+
+  .vehicle-image {
+    max-height: 100%;
+  }
+}
+
+/* Telas maiores que 1366px */
+@media (min-width: 1367px) {
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 32px auto;
+  }
+
+  .dashboard-content {
+    flex-direction: column;
+    padding: 40px 48px 160px;
+    max-height: none;
+  }
+
+  .vehicle-selection {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .vehicle-metrics {
+    max-width: 720px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 28px;
+    margin: 0 auto;
+  }
+
+  .metric-box {
+    width: 240px;
+  }
+
+  .vehicle-image-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .vehicle-image {
+    max-height: 360px;
+  }
+}

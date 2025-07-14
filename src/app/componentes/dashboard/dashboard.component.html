@@ -1,0 +1,84 @@
+<app-menu>
+  <button class="menu-button" aria-label="Abrir menu">&#9776;</button>
+  <span class="menu-title">Ford Dashboard</span>
+</app-menu>
+
+<div class="dashboard-container">
+
+  <div class="dashboard-content">
+    <h2 class="dashboard-title">Dashboard</h2>
+
+    <div class="vehicle-selection">
+      <label for="selectVehicle" class="vehicle-label">Veículo</label>
+      <select id="selectVehicle" [(ngModel)]="selectedId" (change)="onSelectChange()" class="vehicle-select">
+        <option [value]="''" disabled selected>Selecione Aqui</option>
+        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.vehicle }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="selectedVehicleFromSelect" class="vehicle-metrics">
+      <div class="metric-box">
+        <h6 class="metric-label">Total de Vendas</h6>
+        <h4 class="metric-value">{{ selectedVehicleFromSelect.volumetotal || '-' }}</h4>
+        <small>Unid.</small>
+      </div>
+      <div class="metric-box">
+        <h6 class="metric-label">Conectados</h6>
+        <h4 class="metric-value">{{ selectedVehicleFromSelect.connected || '-' }}</h4>
+        <small>Unid.</small>
+      </div>
+      <div class="metric-box">
+        <h6 class="metric-label">Atualizações de Software</h6>
+        <h4 class="metric-value">{{ selectedVehicleFromSelect.softwareUpdates || '-' }}</h4>
+        <small>Unid.</small>
+      </div>
+    </div>
+
+    <!-- Única imagem que aparece, substitui entre busca e seleção -->
+    <div class="vehicle-image-container" *ngIf="(selectedVehicleFromSearch?.img || selectedVehicleFromSelect?.img) as imgUrl">
+  <img
+    class="vehicle-image"
+    [src]="imgUrl"
+    [alt]="selectedVehicleFromSearch?.vehicle || selectedVehicleFromSelect?.vehicle || 'Veículo selecionado'"
+  />
+</div>
+
+  <div class="telemetry-table-container">
+    <div class="telemetry-table-wrapper">
+      <table class="telemetry-table">
+        <thead class="telemetry-table-header">
+          <tr>
+            <th>Código VIN</th>
+            <th>Odômetro</th>
+            <th>Combustível</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="selectedVehicleFromSearch">
+            <td>{{ searchVin || '-' }}</td>
+            <td>{{ selectedVehicleFromSearch.odometro || '-' }} Km</td>
+            <td>{{ selectedVehicleFromSearch.nivelCombustivel || '-' }} %</td>
+            <td>{{ selectedVehicleFromSearch.status || '-' }}</td>
+            <td>{{ selectedVehicleFromSearch.lat || '-' }}</td>
+            <td>{{ selectedVehicleFromSearch.long || '-' }}</td>
+          </tr>
+          <tr *ngIf="!selectedVehicleFromSearch">
+            <td colspan="6" style="text-align: center; font-style: italic;">Nenhum veículo encontrado.</td>
+          </tr>
+          <tr>
+            <td colspan="6">
+              <div class="vin-search-group">
+                <input [(ngModel)]="searchVin" class="vin-input" placeholder="Digite o VIN" />
+                <button class="vin-search-button" (click)="searchByVin()">Buscar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

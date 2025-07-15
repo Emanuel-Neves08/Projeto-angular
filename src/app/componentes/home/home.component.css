@@ -1,11 +1,11 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f0f2f5 url('https://www.transparenttextures.com/patterns/asfalt-light.png') repeat;
@@ -19,7 +19,7 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem; /* acrescenta padding para telas maiores */
+  padding: 2rem;
 }
 
 .imagem {
@@ -27,8 +27,8 @@ main {
   max-width: 1100px;
   width: 100%;
   background: #fff;
-  border-radius: 16px; /* bordas um pouco mais arredondadas */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* sombra mais suave e leve */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   border: 1.5px solid #004080;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -45,7 +45,8 @@ main {
   height: auto;
   display: block;
   object-fit: cover;
-  filter: brightness(0.97); /* leve ajuste para brilho mais natural */
+  filter: brightness(0.97);
+ 
   transition: filter 0.3s ease;
 }
 
@@ -58,8 +59,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 64, 128, 0.88); /* mais opaco para melhor leitura */
-  padding: 40px 56px; /* mais espaçamento para “respirar” */
+  background: rgba(0, 64, 128, 0.88);
+  padding: 40px 56px;
   max-width: 680px;
   width: 80%;
   border-radius: 20px;
@@ -72,9 +73,9 @@ main {
 }
 
 .caixa-mensagem .titulo {
-  font-size: 3rem; /* aumento suave para destaque */
+  font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 24px; /* mais espaço abaixo */
+  margin-bottom: 24px;
   border-bottom: 3px solid #a3c1ff;
   padding-bottom: 14px;
   text-transform: uppercase;
@@ -91,7 +92,6 @@ main {
   margin: 0 auto;
 }
 
-/* Botão discreto para ação */
 .caixa-mensagem .botao {
   display: inline-block;
   margin-top: 32px;
@@ -115,22 +115,26 @@ main {
   outline: none;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   main {
     padding: 2rem 1.5rem;
   }
+
   .caixa-mensagem {
     padding: 32px 40px;
   }
+
   .caixa-mensagem .titulo {
     font-size: 2.4rem;
     margin-bottom: 18px;
     padding-bottom: 10px;
   }
+
   .caixa-mensagem .texto {
     font-size: 1.15rem;
   }
+
   .caixa-mensagem .botao {
     padding: 12px 36px;
     font-size: 1.05rem;
@@ -142,9 +146,11 @@ main {
   main {
     padding: 1.5rem 1rem;
   }
+
   .imagem {
     max-width: 100%;
   }
+
   .caixa-mensagem {
     position: static;
     transform: none;
@@ -153,14 +159,17 @@ main {
     border-radius: 14px;
     padding: 24px 20px;
   }
+
   .caixa-mensagem .titulo {
     border-bottom: none;
     margin-bottom: 14px;
     font-size: 1.8rem;
   }
+
   .caixa-mensagem .texto {
     font-size: 1rem;
   }
+
   .caixa-mensagem .botao {
     display: block;
     width: 100%;
